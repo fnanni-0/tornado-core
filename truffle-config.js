@@ -2,6 +2,10 @@ require('dotenv').config()
 const HDWalletProvider = require('@truffle/hdwallet-provider')
 const utils = require('web3-utils')
 
+const { 
+  INFURA_PROJECT_ID
+} = process.env
+
 module.exports = {
   /**
    * Networks define how you connect to your ethereum client and let you set the
@@ -23,7 +27,7 @@ module.exports = {
       provider: () =>
         new HDWalletProvider(
           process.env.PRIVATE_KEY,
-          'https://kovan.infura.io/v3/97c8bf358b9942a9853fab1ba93dc5b3',
+          `https://kovan.infura.io/v3/${INFURA_PROJECT_ID}`,
         ),
       network_id: 42,
       gas: 6000000,
@@ -36,7 +40,7 @@ module.exports = {
       provider: () =>
         new HDWalletProvider(
           process.env.PRIVATE_KEY,
-          'https://goerli.infura.io/v3/d34c08f2cb7c4111b645d06ac7e35ba8',
+          `https://goerli.infura.io/v3/${INFURA_PROJECT_ID}`,
         ),
       network_id: 5,
       gas: 6000000,
@@ -49,7 +53,7 @@ module.exports = {
       provider: () =>
         new HDWalletProvider(
           process.env.PRIVATE_KEY,
-          'https://rinkeby.infura.io/v3/97c8bf358b9942a9853fab1ba93dc5b3',
+          `https://rinkeby.infura.io/v3/${INFURA_PROJECT_ID}`,
         ),
       network_id: 4,
       gas: 6000000,
